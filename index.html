@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>中華電信 羅丹智慧農場-全景空間</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">    
+    <meta name="description" content="CHT SMART FARM">
+   
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+      
+     
+    <!-- 面向元件 -->
+	<script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    
+    <script src="https://unpkg.com/aframe-event-set-component@4.0.0/dist/aframe-event-set-component.min.js"></script> 
+      
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+      
+    <!--影片控制程式 -->
+        <script>
+            AFRAME.registerComponent('play-pause', {
+                init: function () {
+                    var myVideo = document.querySelector('#video');
+                    var videoControls = document.querySelector('#videoControls');
+                    this.el.addEventListener('click', function () {
+                        if (myVideo.paused) {
+                            myVideo.play();
+                            videoControls.setAttribute('src', '#pause');
+                        } else {
+                            myVideo.pause();
+                            videoControls.setAttribute('src', '#play');
+                        }
+                    });
+                }
+            });
+           
+        </script>  
+      
+      
+  </head>
+  <body>
+    <a-scene>
+        
+      <!-- Asset  資源 -->  
+      <a-assets>
+                
+        <img id="skyTexture02" src="images/cht02.jpg">  
+        
+        <img id="skyTexture04" src="images/cht04.jpg">
+          
+        <img id="skyTexture05" src="images/cht05.jpg">    
+       
+        <img id="skyTexture06" src="images/cht06.jpg">  
+         
+        
+          
+        <img id="groundTexture" src="images/floor-gird-1024.jpg"> 
+          
+        <img id="mainmenu" src="images/homemenu.png">
+          
+        <img id="mainbase" src="images/akihabaramap.jpg">
+          
+        <img id="mapicon" src="images/mapicon.png">
+        
+          
+        <img id="magicon" src="images/magnifier01.png">
+          
+        <img id="wwwicon" src="images/wwwicon.png">  
+          
+        <img id="mapicon01" src="360img/p-n.png">
+       
+        <img id="mapicon02" src="360img/p-w.png">
+       
+        <img id="mapicon03" src="360img/p-e.png">  
+          
+        <img id="mapicon04" src="360img/p-s.png">  
+        
+        <img id="showicon01" src="images/show01.jpg">
+        
+        <img id="showicon02" src="images/show02.jpg">
+        <img id="showicon03" src="images/show03.jpg">
+        <img id="showicon04" src="images/show04.jpg">  
+        <img id="showicon05" src="images/show05.jpg">
+        <img id="showicon06" src="images/show06.jpg"> 
+        <img id="showicon07" src="images/show07.jpg">
+        <img id="showicon08" src="images/show08.jpg">  
+        <img id="showicon09" src="images/show09.jpg"> 
+        <img id="showicon10" src="images/show10.jpg">  
+          
+        <img id="titlebanner" src="images/chtmain.gif"> 
+        
+        <img id="soundicon" src="images/soundicon01.png">   
+         
+        <img id="play" src="images/play.jpg">
+        <img id="pause" src="images/pause.jpg"> 
+          
+          
+        <audio id="intro" src="sound/intro.mp3"></audio> 
+        <audio id="showsound02" src="sound/showsound02.mp3"></audio> 
+        <audio id="showsound03" src="sound/showsound03.mp3"></audio> 
+        <audio id="showsound04" src="sound/showsound04.mp3"></audio> 
+        <audio id="showsound05" src="sound/showsound05.mp3"></audio> 
+        <audio id="showsound06" src="sound/showsound06.mp3"></audio>  
+        <audio id="showsound07" src="sound/showsound07.mp3"></audio> 
+        <audio id="showsound08" src="sound/showsound08.mp3"></audio>  
+        <audio id="showsound09" src="sound/showsound09.mp3"></audio> 
+        <audio id="showsound10" src="sound/showsound10.mp3"></audio>  
+          
+
+          
+        
+      </a-assets>
+        
+     
+        
+      
+     
+      
+      <!-- Sky  天空 02 -->   
+      <a-entity id="sky02" 
+                geometry="primitive: sphere; radius: 30" 
+                material="side: back; height: 2048; width: 2048; src: #skyTexture02; shader: flat  " position="0 0 -100" rotation="0 315 0"
+                >
+      </a-entity>
+      
+    
+    
+          
+      <!-- Sky  天空 04 -->   
+      <a-entity id="sky04" geometry="primitive: sphere; radius: 30" material="side: back; height: 2048; width: 2048; src: #skyTexture04; shader: flat  " position="-100 0 0"  rotation="0 30 0"
+                   >
+      </a-entity>
+      
+      <!-- Sky  天空05  主選單 --> 
+      <a-entity id="sky05" geometry="primitive: sphere;  radius: 30" material="side: back; height: 2048; width: 2048; src: #skyTexture05; shader: flat"   rotation="0 90 0"></a-entity>  
+     
+        
+      <!-- Sky  天空 06 -->   
+      <a-entity id="sky06" geometry="primitive: sphere; radius: 30" material="side: back; height: 2048; width: 2048; src: #skyTexture06; shader: flat  " position="100 0 0"  rotation="0 150 0"
+                >
+      </a-entity>
+      
+      
+     
+        
+    
+      
+     
+        
+      <!-- Ground 地面
+      <a-entity id="ground" geometry="primitive: plane; height: 80; width: 80"
+      material="src: #groundTexture" rotation="-90 0 0" ></a-entity> 
+       -->  
+       
+        
+      
+      <!-- 光源
+      <a-entity id="lightSphere" geometry="primitive: sphere; radius: 0.2" material="shader: flat" light="type: point; color: #FFF" position="-4 6 -4">
+      </a-entity>
+        -->   
+        
+      <!-- 光源   -->
+      <a-entity light="type: ambient; color: #222"></a-entity>
+      <a-entity light="type: directional; color: #111" position="-1 1 0"></a-entity>
+
+       
+     
+      
+      
+       <!-- 主圖片-->
+     <a-entity   position="3 2 -4" rotation="0 -25 0"  scale="3 3 3" geometry="primitive:plane;" material="shader:gif;src:#titlebanner;transparent:true"  transparent="true" ></a-entity>
+        
+        
+       <!--播放解說-->
+       <a-image 
+            src="#soundicon" scale="1.5 0.3 1.5" position="3 0 -4" look-at="#cam-rig"
+            sound="src: #intro;
+        				   on: click;
+        				   volume: 1;
+        				   "                   
+       >
+       </a-image>
+      
+        
+       
+       <!-- 說明地板  -->   
+           <a-image 
+                 src="#mainbase" scale="1 1 1" position="0 0.5 0"   rotation="-90 0 0">
+           </a-image>    
+        
+        
+        
+      <!-- **主選單** -->
+   
+        <!-- 放大鏡01-->
+        <a-entity  position="0 1.5 -6">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="1 1 1" 
+             event-set__enter="_event: click; _target: #show01; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show01; visible: false">               
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show01" 
+                  src="#showicon01" scale="4 6 3.5" position="-2 0 2"  rotation="0 0 0" visible="false">
+            </a-image>  
+      </a-entity> 
+        
+      <!-- 放大鏡02-->
+      <a-entity  position="7 4 -95">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="1 1 1" 
+             event-set__enter="_event: click; _target: #show02; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show02; visible: false"
+             sound="src: #showsound02;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show02" look-at="#cam-rig" 
+                  src="#showicon02" scale="10 14 3.5" position="8 0 0"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>   
+        
+       <!-- 放大鏡03-->
+        <a-entity  position="7 7 -115">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="2 2 1" 
+             event-set__enter="_event: click; _target: #show03; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show03; visible: false"
+             sound="src: #showsound03;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show03" look-at="#cam-rig" 
+                  src="#showicon03" scale="15 20 3.5" position="10 5 0"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity> 
+        
+       <!-- 放大鏡04-->
+       <a-entity  position="1 -1 -115">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="2 2 1" 
+             event-set__enter="_event: click; _target: #show04; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show04; visible: false"
+             sound="src: #showsound04;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show04" look-at="#cam-rig" 
+                  src="#showicon04" scale="9 16 3.5" position="5 -1 0"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>  
+        
+       <!-- 放大鏡05-->
+       <a-entity  position="-4 6 -115">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="2 2 1" 
+             event-set__enter="_event: click; _target: #show05; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show05; visible: false"
+             sound="src: #showsound05;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show05" look-at="#cam-rig" 
+                  src="#showicon05" scale="7 14 3.5" position="4 0 0"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>  
+        
+      <!-- 放大鏡06-->
+       <a-entity  position="-3 1 -105">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="1 1 1" 
+             event-set__enter="_event: click; _target: #show06; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show06; visible: false"
+             sound="src: #showsound06;
+        				   on: click;
+        				   volume: 1;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show06" look-at="#cam-rig" 
+                  src="#showicon06" scale="5 10 3.5" position="-3 0 0"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>  
+      
+         <!-- 放大鏡07-->
+       <a-entity  position="-18 1.5 -106">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="2.5 2.5 1" 
+             event-set__enter="_event: click; _target: #show07; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show07; visible: false"
+             sound="src: #showsound07;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show07" look-at="#cam-rig" 
+                  src="#showicon07" scale="5 10 3.5" position="7 0 5"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>  
+     
+       <!-- 放大鏡08-->
+       <a-entity  position="-20 5 -96">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="2.5 2.5 1" 
+             event-set__enter="_event: click; _target: #show08; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show08; visible: false"
+             sound="src: #showsound08;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show08" look-at="#cam-rig" 
+                  src="#showicon08" scale="15 20 3.5" position="-5 0 6"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>  
+        
+       <!-- 放大鏡09-->
+       <a-entity  position="85 6 0">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="2 2 1" 
+             event-set__enter="_event: click; _target: #show09; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show09; visible: false"
+             sound="src: #showsound09;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show09" look-at="#cam-rig" 
+                  src="#showicon09" scale="18 25 3.5" position="-6 0 9"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>    
+        
+      <!-- 放大鏡10-->
+       <a-entity  position="85 6 -10">
+          <a-image look-at="#cam-rig" 
+             src="#magicon" scale="2 2 1" 
+             event-set__enter="_event: click; _target: #show10; visible: true"
+             event-set__leave="_event: mouseleave; _target: #show10; visible: false"
+             sound="src: #showsound10;
+        				   on: click;
+        				   volume: 4;
+        				   "       
+          >  
+             
+          </a-image>  
+          
+           <!-- 放大鏡 圖片-->
+            <a-image id="show10" look-at="#cam-rig" 
+                  src="#showicon10" scale="18 25 3.5" position="0 0 -9"   visible="false"                 
+                     >
+            </a-image>  
+      </a-entity>  
+        
+        
+      <!-- 導覽 北 2 -->
+        <a-entity  position="-6 1 -6">
+          <a-image look-at="#cam-rig" 
+             src="#mapicon" scale="1 1 1"    
+             event-set__down="_event: mousedown; _target: #cam-rig;  position: 0 0 -100"  
+             event-set__enter="_event: mouseenter; _target: #mapi01; visible: true"
+             event-set__leave="_event: mouseleave; _target: #mapi01; visible: false">               
+          </a-image>  
+          
+           <!-- 導覽 北 圖片-->
+            <a-image id="mapi01" look-at="#cam-rig" 
+                  src="#mapicon01" scale="3.5 3.5 3.5" position="0 2 0"   visible="false">
+            </a-image>  
+      </a-entity> 
+      
+       
+        
+        <!-- 導覽 北 2 放在西-->
+        <a-entity  position="-102 1 -8" >
+          <a-image look-at="#cam-rig" 
+             src="#mapicon" scale="1 1 1"   
+             event-set__down="_event: mousedown; _target: #cam-rig;  position: 0 0 -100"  
+             event-set__enter="_event: mouseenter; _target: #mapi01n01; visible: true"
+             event-set__leave="_event: mouseleave; _target: #mapi01n01; visible: false">               
+          </a-image>  
+          
+           <!-- 導覽 北 圖片-->
+            <a-image id="mapi01n01" look-at="#cam-rig" 
+                  src="#mapicon01" scale="5 5 5" position="0 3 0"   visible="false">
+            </a-image>  
+      </a-entity> 
+        
+        
+       <!-- 導覽 北 2 放在東-->
+        <a-entity  position="110 -3 4" >
+          <a-image look-at="#cam-rig" 
+             src="#mapicon" scale="1 1 1"   
+             event-set__down="_event: mousedown; _target: #cam-rig;  position: 0 0 -100"  
+             event-set__enter="_event: mouseenter; _target: #mapi01e01; visible: true"
+             event-set__leave="_event: mouseleave; _target: #mapi01e01; visible: false">               
+          </a-image>  
+          
+           <!-- 導覽 北 圖片-->
+            <a-image id="mapi01e01" look-at="#cam-rig" 
+                  src="#mapicon01" scale="5 5 5" position="0 3 0"   visible="false">
+            </a-image>  
+      </a-entity> 
+     
+        
+        
+        
+        
+        
+        
+      <!-- 導覽 西 4 -->
+      <a-entity position="-6 1 4" >
+          <a-image look-at="#cam-rig" 
+             src="#mapicon" scale="1 1 1"   
+             event-set__down="_event: mousedown; _target: #cam-rig;  position: -100 0 0" 
+             event-set__enter="_event: mouseenter; _target: #mapi02; visible: true"
+             event-set__leave="_event: mouseleave; _target: #mapi02; visible: false"> 
+          </a-image>  
+         
+          <a-image id="mapi02" look-at="#cam-rig" 
+              src="#mapicon02" scale="3.5 3.5 3.5" position="0 2 0"   visible="false">
+          </a-image>  
+         
+      </a-entity> 
+        
+           
+ 
+        
+    <!-- 導覽 東 6 放在北--> 
+          <a-entity position="15 2.5 -120" >
+          <a-image look-at="#cam-rig" 
+             src="#mapicon" scale="3 3 1"   
+             event-set__down="_event: mousedown; _target: #cam-rig;  position: 100 0 0"  
+             event-set__enter="_event: mouseenter; _target: #mapiee03; visible: true"
+             event-set__leave="_event: mouseleave; _target: #mapiee03; visible: false">               
+          </a-image>  
+          
+           <!-- 導覽 東 圖片-->
+            <a-image id="mapiee03" look-at="#cam-rig" 
+                  src="#mapicon03" scale="8 8 3.5" position="0 5 0"   visible="false">
+            </a-image>  
+      </a-entity>     
+  
+       
+      
+        
+    
+       
+        
+        
+    
+    
+        
+        
+      <!-- 回選單物件 02   --> 
+      <a-entity >
+          <a-image 
+             src="#mainmenu" scale="1 1 1" position="-1 0 -101"   rotation="-90 45 0"  event-set__down="_event: mousedown; _target: #cam-rig;  position: 0 0 0"          
+          >
+          </a-image>  
+      </a-entity>
+   
+        
+      <!--  回選單物件  04   --> 
+      <a-entity >
+          <a-image 
+             src="#mainmenu" scale="1 1 1" position="-101 0 0"   rotation="-90 120 0"  event-set__down="_event: mousedown; _target: #cam-rig;  position: 0 0 0"          
+          >
+          </a-image>  
+      </a-entity>    
+        
+        <!--  回選單物件  06   --> 
+      <a-entity >
+          <a-image 
+             src="#mainmenu" scale="1 1 1" position="101 0 0"   rotation="-90 -90 0"  event-set__down="_event: mousedown; _target: #cam-rig;  position: 0 0 0"          
+          >
+          </a-image>  
+      </a-entity>   
+      
+       
+     
+        
+     <!-- 攝影機   -->
+     <a-entity id="cam-rig">
+         <a-entity   raycaster="objects: .clickable" cursor="rayOrigin: mouse;">
+              <a-camera >
+                <a-cursor
+                          
+                 cursor="fuse: true; fuseTimeout: 1000"
+						geometry="primitive: ring; radius-outer: 0.07; radius-inner: 0.02;"
+						material="color: red"    
+                 ></a-cursor>
+              </a-camera>
+          </a-entity>    
+         </a-entity>  
+        
+    </a-scene>
+  </body>
+</html>
